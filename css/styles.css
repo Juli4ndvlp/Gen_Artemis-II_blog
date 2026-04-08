@@ -112,3 +112,10 @@ body {
     padding: 1.5rem;
     margin-top: 3rem;
 }
+
+#img-astronautas {
+    height: 40%;
+    width: 40%;
+    border-radius: 15rem;
+    margin-left: 30%;
+}
