@@ -3,6 +3,8 @@
     --secondary: #fc3d21;
     --dark: #0a0a0a;
     --light: #f5f5f5;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    /* Fondo semi-transparente para cards */
 }
 
 * {
@@ -13,11 +15,17 @@
 }
 
 body {
-    background-color: var(--dark);
+    /* Fondo con imagen y capa oscura para legibilidad */
+    background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8)),
+        url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1920');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     color: var(--light);
     padding-top: 80px;
 }
 
+/* --- HEADER & NAV (Sin cambios mayores) --- */
 .header {
     position: fixed;
     top: 0;
@@ -52,85 +60,64 @@ body {
     font-weight: 500;
 }
 
-.nav-links a.active {
-    border-bottom: 2px solid var(--secondary);
-}
-
+/* --- CONTENEDOR Y CARDS --- */
 .container {
     max-width: 1200px;
     margin: auto;
     padding: 2rem;
 }
 
-.hero {
-    margin-bottom: 2rem;
-}
-
-.content {
+.cards-container {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
-    align-items: center;
+    margin-top: 2rem;
 }
 
-.text {
+.card {
     flex: 1;
+    min-width: 300px;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
 }
 
-.image {
-    flex: 1;
-    max-width: 100%;
-    border-radius: 10px;
+.card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
 }
 
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 500px;
+.card h3 {
+    color: var(--secondary);
+    margin-bottom: 1rem;
 }
 
-.form input,
-.form textarea {
-    padding: 0.8rem;
-    border-radius: 5px;
-    border: none;
-}
-
-.form button {
-    background: var(--secondary);
-    color: white;
-    border: none;
-    padding: 0.8rem;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.footer {
-    background: #3526a2;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 3rem;
-}
-
-#img-astronautas {
-    height: 40%;
-    width: 40%;
-    border-radius: 15rem;
-    margin-left: 30%;
-}
 
 .btn {
     display: inline-block;
-    padding: 0.5rem 1.1rem;
-    background: var(--primary);
+    padding: 0.8rem 1.5rem;
+    background: var(--secondary);
     color: white;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 5px;
     font-weight: bold;
-    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 1rem;
 }
 
-.btn:hover {
-    background: #b6b1b0;
+.image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+    background: var(--primary);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
 }
